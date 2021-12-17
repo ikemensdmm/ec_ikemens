@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  
+  # customer
+  namespace :customer do
+  	resources :addresses,only: [:index,:create,:edit,:update,:destroy]
+  	
+    end
+    
+
   namespace :admin do
     resources :genres
   end
@@ -7,7 +16,8 @@ Rails.application.routes.draw do
     get 'orders/confirmation'
     get 'orders/message'
   end
+
   devise_for :admins
   devise_for :customers
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
+  
+  end
