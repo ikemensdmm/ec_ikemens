@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   
   # customer
   namespace :customer do
@@ -6,6 +7,16 @@ Rails.application.routes.draw do
   	
     end
     
+
+  namespace :admin do
+    resources :genres
+  end
+  namespace :customer do
+    resources :orders
+    get 'orders/confirmation'
+    get 'orders/message'
+  end
+
   devise_for :admins
   devise_for :customers
   
