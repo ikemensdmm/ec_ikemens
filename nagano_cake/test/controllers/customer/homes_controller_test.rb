@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class Customer::HomesControllerTest < ActionDispatch::IntegrationTest
+
   test "should get top" do
     get customer_homes_top_url
     assert_response :success
@@ -11,4 +12,7 @@ class Customer::HomesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  # test "the truth" do
+  #   assert true
+  # end
 end

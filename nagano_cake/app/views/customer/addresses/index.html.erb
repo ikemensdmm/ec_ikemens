@@ -1,0 +1,51 @@
+<div class= 'container'>
+  <div class= 'row'>
+    <div class='col px-5 py-5'>
+      <h4 class='mx-5'>配送先登録/一覧</h4>
+      <%= form_with model:@addresses,url:customer_addresses_path, local:true do |f| %>
+      <table class='new_form my-5'>
+        <tr>
+          <td>郵便番号(ハイフンなし)</td>
+          <td><%= f.text_field :post_code %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= f.text_field :address %></td>
+        </tr>
+        <tr>
+          <td>宛名</td>
+          <td><%= f.text_field :receiver_name %></td>
+          <td><%= f.submit '新規登録', class: 'btn btn-success' %></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-10 px-5'>
+      <table class='table table-bordered'>
+        <thead class='thead thead-light'>
+          <tr>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @addresses.each do |addresses| %>
+          <tr>
+            <td><%= addresses.post_code %></td>
+            <td><%= addresses.address %></td>
+            <td><%= addresses.receiver_name %></td>
+            <td>
+              <%= link_to "編集する", edit_customers_address_path(addresses.id),class: "btn btn-sm btn-success" %>
+              <%= link_to "削除する", customers_address_path(addresses.id), method: :delete, class: "btn btn-sm btn-danger" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
