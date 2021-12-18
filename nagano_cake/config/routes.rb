@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :genres
+    resources :items
+    post 'items/new'
   end
   namespace :customer do
     resources :orders
