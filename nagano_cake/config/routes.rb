@@ -6,16 +6,17 @@ Rails.application.routes.draw do
     resources :orders
     get 'orders/confirmation'
     get 'orders/message'
+    resources :customers
     resources :items
     resources :addresses,only: [:index,:create,:edit,:update,:destroy]
   end
-  
+
   namespace :admin do
     resources :genres
     resources :items
     post 'items/new'
-  end 
-  
+  end
+
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
