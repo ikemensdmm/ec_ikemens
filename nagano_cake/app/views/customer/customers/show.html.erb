@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <p>マイページ</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <p>登録情報</p>
+    </div>
+    <div class="col-4">
+      <%= link_to "編集する",edit_customer_customer_path, class:"btn btn-sm btn-primary" %>
+    </div>
+  </div>
+</div>
+
+<div class ="container">
+  <div class="row">
+    <div clas="col-3">
+<table border="1" cellpadding="3">
+ <tbody>
+  <tr>
+    <tr>
+    <td>氏名</td>
+    </div>
+    <td>
+    <div class="col-4">
+    <%= @customer.first_name %>
+    <%= @customer.last_name%>
+    </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>カナ</td>
+    <td>
+    <%= @customer.kana_first_name %>
+    <%= @customer.kana_last_name %>
+    </td>
+    </tr>
+
+    <tr>
+     <td>郵便番号</td>
+     <td><%= @customer.post_code %></td>
+    <tr>
+      <td>住所</td>
+      <td><%=  @customer["address"] %></td>
+    </tr>
+    <tr>
+      <td>電話番号</td>
+      <td><%= @customer["phone_number"] %></td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td><%= @customer["email"] %></td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <p>配送先</p>
+    </div>
+    <div class="col-4">
+      <%= link_to "一覧を見る",customer_addresses_path, class:"btn btn-sm btn-primary" %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <p>注文履歴</p>
+    </div>
+    <div class="col-4">
+      <%= link_to "一覧を見る",customer_orders_path, class:"btn btn-sm btn-primary" %>
+    </div>
+  </div>
+</div>

@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+
+.box {
+    position: relative;
+}
+
+.box p{
+    position: absolute;
+    top: 50;
+    left: 50;
+}
+@import "bootstrap";
+
+.inline-block{
+    display: inline-block;
+}
+
