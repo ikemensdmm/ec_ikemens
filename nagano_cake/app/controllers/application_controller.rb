@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    before_action :configure_permitted_parameters, if: :devise_controller?
+    
 
     def after_sign_in_path_for(resource)
       if current_customer
@@ -11,33 +11,4 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    protected
-
-    def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name])
-    end
-
-    def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name])
-    end
-
-    def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:kana_first_name])
-    end
-
-    def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:kana_last_name])
-    end
-
-    def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:address])
-    end
-
-    def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:postcode])
-    end
-
-    def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:phone_number])
-    end
 end

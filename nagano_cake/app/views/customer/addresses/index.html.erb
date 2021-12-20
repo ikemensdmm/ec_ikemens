@@ -2,7 +2,7 @@
   <div class= 'row'>
     <div class='col px-5 py-5'>
       <h4 class='mx-5'>配送先登録/一覧</h4>
-      <%= form_with model:@addresses,url:customer_addresses_path, local:true do |f| %>
+      <%= form_with model:@address,url:customer_addresses_path, local:true do |f| %>
       <table class='new_form my-5'>
         <tr>
           <td>郵便番号(ハイフンなし)</td>
@@ -39,8 +39,8 @@
             <td><%= addresses.address %></td>
             <td><%= addresses.receiver_name %></td>
             <td>
-              <%= link_to "編集する", edit_customers_address_path(addresses.id),class: "btn btn-sm btn-success" %>
-              <%= link_to "削除する", customers_address_path(addresses.id), method: :delete, class: "btn btn-sm btn-danger" %>
+              <%= link_to "編集する", edit_customer_address_path(addresses.id),class: "btn btn-sm btn-success"%>
+              <%= link_to "削除する", customer_address_path(addresses.id), method: :delete, class: "btn btn-sm btn-danger" %>
             </td>
           </tr>
           <% end %>
