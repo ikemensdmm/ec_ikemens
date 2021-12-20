@@ -1,12 +1,8 @@
-
-<h2>新規登録</h2>
-
-<%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
-  <%= render "customers/shared/error_messages", resource: resource %>
-
-  <div class="form-group row">
+<h1>会員情報編集</h1>
+<%= form_with model:@customer, url:"customer/customers/#{@customer.id}", local:true do |f| %>
+ <div class="form-group row">
     <div class="col-3">
-      <%= f.label :"名前"%>
+      <%= f.label :"name","名前"%>
     </div>
     <div class="col-4">
       <%= f.label :"first_name","姓"%>
@@ -20,7 +16,7 @@
 
   <div class="form-group row">
     <div class="col-3">
-      <%= f.label :"フリガナ"%>
+      <%= f.label :"name","フリガナ"%>
     </div>
     <div class="col-4">
       <%= f.label :"kana_last_name","セイ"%>
@@ -33,7 +29,7 @@
 
   <div class="form-group row">
     <div class="col-3">
-      <%= f.label :"メールアドレス"%>
+      <%= f.label :"email","メールアドレス"%>
     </div>
     <div class="col-4">
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -42,7 +38,7 @@
 
   <div class="form-group row">
     <div class="col-3">
-      <%= f.label :"郵便番号(ハイフンなし)"%>
+      <%= f.label :"post_code","郵便番号(ハイフンなし)"%>
     </div>
     <div class="col-4">
       <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code" %>
@@ -53,7 +49,6 @@
 
   <div class="form-group row">
     <div class="col-3">
-
       <%= f.label :"address","住所"%>
     </div>
     <div class="col-4">
@@ -64,47 +59,10 @@
 
   <div class="form-group row">
     <div class="col-3">
-      <%= f.label :"電話番号(ハイフンなし)"%>
+      <%= f.label :"phone_number","電話番号(ハイフンなし)"%>
     </div>
     <div class="col-4">
       <%= f.text_field :phone_number,autofocus: true, autocomplete: "phone_number" %>
     </div>
   </div>
-
-
-  <div class="form-group row">
-    <div class="col-3">
-      <%= f.label :"パスワード(6文字以上)"%>
-    </div>
-    <div class="col-4">
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
-  </div>
-
-
-  <div class="form-group row">
-    <div class="col-3">
-      <%= f.label :"パスワード(再確認)"%>
-    </div>
-    <div class="col-4">
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "新規登録",class:"btn btn-sm btn-primary" %>
-  </div>
 <% end %>
-
-<h2>既に登録済みの方</h2>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-5">
-      <p><%= link_to "こちら",  new_customer_session_path %>からログインしてください</p>
-    </div>
-  </div>
-</div>
-
-
-
-

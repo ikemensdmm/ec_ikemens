@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :orders
     get 'orders/confirmation'
     get 'orders/message'
+    resources :customers
     resources :items
     resources :addresses,only: [:index,:create,:edit,:update,:destroy]
     resources :cart_items,only: [:index,:create,:update,:destroy]
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :genres
     resources :items
+    post 'items/new'
     resources :customers, only: [:show, :index, :edit, :update, :destroy]
   end
 
