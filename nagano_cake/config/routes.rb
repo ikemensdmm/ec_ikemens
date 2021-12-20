@@ -1,20 +1,24 @@
 Rails.application.routes.draw do
+  root to: 'customer/homes#top'
 
   namespace :customer do
     get 'homes/top'
     get 'homes/about'
+    delete 'cart_items/destroy_all' => 'cutomer/cart_items#destroy_all'
     resources :orders
     get 'orders/confirmation'
     get 'orders/message'
     resources :customers
     resources :items
     resources :addresses,only: [:index,:create,:edit,:update,:destroy]
+    resources :cart_items,only: [:index,:create,:update,:destroy]
   end
 
   namespace :admin do
     resources :genres
     resources :items
     post 'items/new'
+    resources :customers, only: [:show, :index, :edit, :update, :destroy]
   end
 
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
