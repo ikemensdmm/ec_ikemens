@@ -12,7 +12,7 @@
     </div>
 
     <h1>新着商品</h1>
-        <% @items.slice(1..4).each do |item| %>
+        <!--<% @items.slice(1..4).each do |item| %>-->
             <tr>
                <%= attachment_image_tag(,:fill,60,60,format:'jpeg',fallback:"no_image.jpg") %>　<%# 商品の画像が入る予定です　%>
                 <%= item.name %>

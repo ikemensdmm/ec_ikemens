@@ -1,0 +1,62 @@
+<div class=“row”>
+	<div class = "body" style>
+		<div class = "container">
+			<h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h2>
+				<%= form_with model:@customer,url:admin_customer_path, local:true do |f| %>
+				
+				<div class="field">
+	        <%= f.label :会員ID %><br>
+	        <%= @customer.id %>
+	      </div>
+
+				<div class="field">
+				    <%= f.label :名前 %><br>
+				    <%= f.label :（姓） %>
+				    <%= f.text_field :last_name, autofocus: true, autocomplete: "email" %>
+				    <%= f.label :（名） %>
+				    <%= f.text_field :first_name, autofocus: true, autocomplete: "email" %>
+				 </div>
+
+				 <div class="field">
+				    <%= f.label :フリガナ %><br />
+				    <%= f.label :（セイ） %>
+				    <%= f.text_field :kana_last_name, autofocus: true, autocomplete: "email" %>
+				    <%= f.label :（メイ） %>
+				    <%= f.text_field :kana_first_name, autofocus: true, autocomplete: "email" %>
+				 </div>
+
+				 <div class="field">
+				    <%= f.label :郵便番号（ハイフンなし） %><br />
+				    <%= f.text_field :post_code, autofocus: true, autocomplete: "email" %>
+				 </div>
+
+				 <div class="field">
+				    <%= f.label :住所 %><br />
+				    <%= f.text_field :address, autofocus: true, autocomplete: "email" %>
+				 </div>
+
+				 <div class="field">
+				    <%= f.label :電話番号（ハイフンなし） %><br />
+				    <%= f.text_field :phone_number, autofocus: true, autocomplete: "email" %>
+
+				 <div class="field">
+				    <%= f.label :メールアドレス %><br />
+				    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+				 </div>
+
+				 <div class="form-group col-xs-9">
+        <%= f.label :"会員ステータス", class: "col-sm-4 control-label" %>
+          <%= f.radio_button :is_withdrawal, false %>
+        　<%= f.label :is_withdrawal, "有効", {value: :false, style: "display: inline-block;"} %>
+        　<%= f.radio_button :is_withdrawal, true %>
+        　<%= f.label :is_withdrawal, "退会済", {value: :true, style: "display: inline-block;"} %>
+      </div>
+
+				    <%= f.submit "編集内容を保存する", class: "btn btn-success btn-lg"%>
+				    <%= link_to "戻る", admin_customer_path, class: "btn btn-success btn-lg" %>
+
+				 </div>
+			<% end %>
+		</div>
+	</div>
+</div>
