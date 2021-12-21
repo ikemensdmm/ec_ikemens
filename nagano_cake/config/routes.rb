@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'orders/index'
+    get 'orders/show'
+  end
   root to: 'customer/homes#top'
 
   namespace :customer do
@@ -17,6 +21,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :genres
     resources :items
+    resources :orders
     post 'items/new'
     resources :customers, only: [:show, :index, :edit, :update, :destroy]
   end
