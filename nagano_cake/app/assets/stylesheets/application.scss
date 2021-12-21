@@ -31,3 +31,18 @@
     display: inline-block;
 }
 
+.text-align-center{
+    text-align: center;
+}
+
+.main {
+    width: 100%;
+}
+.main div   {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.wrap{
+    display:flex;
+}
