@@ -12,6 +12,6 @@ class Customer::ItemsController < ApplicationController
   
   private
   def items_params
-    parmas.require(:item).permit(:genre_id, :name, :introduction, :price, :is_active, :image_id)
+    parmas.require(:item).permit(:genre_id, :name, :introduction, :price, :is_status, :image_id)
   end
 end

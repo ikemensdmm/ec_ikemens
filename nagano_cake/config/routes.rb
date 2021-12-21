@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   namespace :customer do
     get 'homes/top'
     get 'homes/about'
-    delete 'cart_items/destroy_all' => 'cutomer/cart_items#destroy_all'
     resources :orders
     get 'orders/confirmation'
     get 'orders/message'
@@ -13,7 +12,11 @@ Rails.application.routes.draw do
     patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
     resources :items
     resources :addresses,only: [:index,:create,:edit,:update,:destroy]
-    resources :cart_items,only: [:index,:create,:update,:destroy]
+    resources :cart_items,only: [:index,:update,:create,:destroy] do
+      collection do
+        delete '/' => 'cart_items#destroy_all'
+      end
+    end
   end
 
   namespace :admin do
