@@ -8,5 +8,9 @@ class Item < ApplicationRecord
   end
 
   attachment :image
+  
+  def price_tax
+    (price * 1.1).floor
+  end
 
 end
