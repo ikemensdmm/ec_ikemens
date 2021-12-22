@@ -2,22 +2,27 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="box">
-               <%= attachment_image_tag(,:fill,60,60,format:'jpeg',fallback:"no_image.jpg") %> <%# 何か画像を投稿してください　イメージとしては画像の上に文字がある感じです%>
-                <p>ようこそ、ながのCAKEへ!</p>
-                <p>このサイトは、ケーキ販売のECサイトになります</p>
-                <p>会員ではない方も商品の閲覧はできますが、</p>
-                <p>購入には会員登録が必要になります。</p>
+                <p>
+                    ようこそ、ながのCAKEへ!</br>
+                    このサイトは、ケーキ販売のECサイトになります</br>
+                    会員ではない方も商品の閲覧はできますが、</br>
+                    購入には会員登録が必要になります。
+                </p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <% @items.each do |item| %>
+                    <%= attachment_image_tag item, :image, format: 'jpeg', size: "150x100", fallback: "no_image.jpg" %>
+                    <%= item.name %>
+                  ￥<%= item.price %>
+                <% end %>
+
+                <%= link_to customer_items_path do %>
+                    全ての商品を見る>
+                <% end %>
             </div>
         </div>
     </div>
-
-    <h1>新着商品</h1>
-        <!--<% @items.slice(1..4).each do |item| %>-->
-            <tr>
-               <%= attachment_image_tag(,:fill,60,60,format:'jpeg',fallback:"no_image.jpg") %>　<%# 商品の画像が入る予定です　%>
-                <%= item.name %>
-                <%= item.price %>
-            </tr>
-        <% end %>
-        <%= link_to "すべての商品を見る",customer_index_path %>
-</div>
+ </div>
