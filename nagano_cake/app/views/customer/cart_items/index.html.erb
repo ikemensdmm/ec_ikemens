@@ -54,7 +54,7 @@
         <tbody>
           <tr>
             <td width="50%">合計金額</td>
-            <td width="50%"><%#= (cart_item.subtotal).to_i.to_s(:delimited, delimiter: ',') %></td>
+            <td width="50%">  ¥<%= @total.round.to_s(:delimited) %></td>
           </tr>
         </tbody>
       </table>
