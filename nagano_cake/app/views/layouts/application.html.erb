@@ -26,13 +26,13 @@
               <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
               <li>
-                <%= link_to "マイページ", customer_customer_path(@customer)%>
+                <%= link_to "マイページ", customer_customer_path(current_customer.id)%>
               </li>
               <li>
-                <%= link_to "商品一覧", customer_homes_top_path%>
+                <%= link_to "商品一覧",  customer_items_path%>
               </li>
               <li>
-                <%= link_to "カート",customer_homes_top_path%>
+                <%= link_to "カート",customer_cart_items_path%>
               </li>
               <li>
                 <%= link_to "ログアウト", destroy_customer_session_path,method: :delete %>
@@ -56,7 +56,7 @@
               </li>
 
               <li>
-              <%= link_to "商品一覧",customer_homes_top_path%>
+              <%= link_to "商品一覧",customer_items_path%>
               </li>
 
               <li>
