@@ -6,7 +6,9 @@ class Customer < ApplicationRecord
   has_many :addresses, dependent: :destroy
   has_many :orders
   has_many :cart_items, dependent: :destroy
-  
+
+  attachment :image
+
   def active_for_authentication?
     super && (is_withdrawal == false)
   end
