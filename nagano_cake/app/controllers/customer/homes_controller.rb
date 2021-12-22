@@ -1,6 +1,6 @@
 class Customer::HomesController < ApplicationController
   def top
-    @items = Item.all
+    @items = Item.page(params[:page]).per(4)
   end
 
   def about
