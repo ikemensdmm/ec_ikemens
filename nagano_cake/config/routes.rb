@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   namespace :customer do
     get 'homes/top'
     get 'homes/about'
-    resources :orders
-    get 'orders/confirmation'
-    get 'orders/message'
+    get '/orders/message' => 'orders#message'
+    resources :orders, only: [:new, :index, :create, :show ]
+    post '/orders/confirmation' => 'orders#confirmation', as: 'orders_confirmation'
     resources :customers,only: [:show, :edit, :update]
     get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
