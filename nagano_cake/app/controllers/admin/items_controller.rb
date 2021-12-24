@@ -14,6 +14,15 @@ class Admin::ItemsController < ApplicationController
     @cart_item = CartItem.new
   end
 
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(items_params)
+      redirect_to admin_item_path(@item)
+    else
+      render :edit
+    end
+  end
+
   def edit
     @item = Item.find(params[:id])
   end
