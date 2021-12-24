@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2021_12_18_032531) do
     t.string "address"
     t.string "name"
     t.integer "status", default: 0
+    t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -94,6 +95,8 @@ ActiveRecord::Schema.define(version: 2021_12_18_032531) do
     t.integer "price_tax"
     t.integer "quantity"
     t.integer "production_status"
+    t.integer "item_id"
+    t.integer "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

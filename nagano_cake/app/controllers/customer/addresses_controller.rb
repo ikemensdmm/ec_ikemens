@@ -10,14 +10,14 @@ class Customer::AddressesController < ApplicationController
     address = Address.new(address_params)
     address.customer_id = current_customer.id
     if address.save
-    flash[:success] = '配送先を登録しました'
+      flash[:success] = '配送先を登録しました'
       redirect_to customer_addresses_path
     else
       flash[:danger] = '必要情報を入力してください／ハイフンは使用できません'
       redirect_to customer_addresses_path
     end
   end
-  
+
   def edit
     @address = Address.find(params[:id])
   end
