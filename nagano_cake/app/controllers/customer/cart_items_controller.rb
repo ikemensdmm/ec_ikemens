@@ -11,7 +11,6 @@ class Customer::CartItemsController < ApplicationController
     redirect_to customer_cart_items_path
   end
 
-
   def create
     @cart_items = CartItem.new(cart_item_params)
     @cart_items.customer_id = current_customer.id
