@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-10">
     <h2 class="head-line title_h2 text-center">商品編集</h2>
-    <%= form_with(model: @item, url: admin_items_path,local: true) do |f| %>
+    <%= form_with(model: @item, url: admin_item_path,local: true) do |f| %>
       <div class="col-md-7">
           <div class="form-group">
             <div class="row">
@@ -48,7 +48,7 @@
                 </div>
               </div>
         <div class="text-center">
-          <%= f.submit "変更を保存", class: "btn btn-lg btn-success "%>
+          <%= f.submit "商品編集", class: "btn btn-lg btn-success "%>
         </div>
 
       </div>
